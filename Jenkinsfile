@@ -44,11 +44,6 @@ spec:
 }
   }
   stages {
-    stage('Clone repository') { 
-      steps { 
-        git branch: 'master', url: 'https://github.com/githubamid/sample-app.git'
-      }
-    }
     stage('Test') {
       steps {
         container('golang') {
