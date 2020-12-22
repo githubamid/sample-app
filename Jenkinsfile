@@ -44,7 +44,7 @@ spec:
         sh 'echo $BUILD_NUMBER'
         sh 'echo $GIT_BRANCH'
         sh 'printenv | sort'
-        sh 'echo ${GIT_COMMIT:0:7}'
+        sh 'echo ${env.GIT_COMMIT}'
       }
     }
     stage('Test') {
