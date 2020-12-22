@@ -5,7 +5,7 @@ pipeline {
     FE_SVC_NAME = "${APP_NAME}-frontend"
     CLUSTER = "jenkins-cd"
     CLUSTER_ZONE = "europe-west6-a"
-    IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}:${env.BUILD_NUMBER}"
+    IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}:${env.GIT_COMMIT}"
     JENKINS_CRED = "${PROJECT}"
   }
 
@@ -63,7 +63,7 @@ spec:
       steps {
         container('gcloud') {
           sh """
-            PYTHONUNBUFFERED=1 gcloud builds submit -t ${env.GIT_COMMIT} .
+            PYTHONUNBUFFERED=1 gcloud builds submit -t $IMAGE_TAG .
           """
         }
       }
