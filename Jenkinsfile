@@ -42,7 +42,9 @@ spec:
       steps { 
         git branch: 'master', url: 'https://github.com/githubamid/sample-app.git'
         sh 'echo $BUILD_NUMBER'
-        sh 'echo $GIT_COMMIT'
+        sh 'echo $GIT_BRANCH'
+        sh 'printenv | sort'
+        sh 'echo ${GIT_COMMIT:0:7}'
       }
     }
     stage('Test') {
