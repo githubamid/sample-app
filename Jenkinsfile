@@ -45,7 +45,7 @@ spec:
         sh 'echo $GIT_BRANCH'
         sh 'printenv | sort'
         sh "echo ${env.GIT_COMMIT}"
-        sh "echo "DELETE WEBHOOK""
+        sh "echo "ADD WEBHOOK""
       }
     }
     stage('Test') {
